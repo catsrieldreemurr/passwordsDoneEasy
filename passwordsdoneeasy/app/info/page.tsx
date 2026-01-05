@@ -1,5 +1,9 @@
+import Navbar from "@/components/ui/navbar";
+
 export default function Page(){
     return(
-        <h1>test</h1>
+        <div className="bg-zinc-200">
+            <Navbar></Navbar>
+        </div>
     )
 }
