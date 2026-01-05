@@ -1,4 +1,5 @@
 "use client"
+import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import CheckboxHolder from "@/components/ui/checkboxHolder";
 import Navbar from "@/components/ui/navbar";
@@ -32,6 +33,13 @@ export default function Home() {
           <div className="border p-3 mt-5">
             <p>{generatedString}</p>
           </div>
+
+          <Button className="mt-5" variant={"outline"} onClick={() => {
+            console.log("Losercase: " + includeLowercase)
+            console.log("Uppercase: " + includeUppercase)
+            console.log("Numbers: " + includeNums)
+            console.log("Special: " + includeSpecial)
+          }}>Generate</Button>
 
         </div>
       </div>
