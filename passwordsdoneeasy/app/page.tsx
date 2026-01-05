@@ -13,6 +13,11 @@ export default function Home() {
   const [includeNums, setIncludeNums] = useState(true)
   const [includeSpecial, setIncludeSpecial] = useState(true)
 
+  const lowercaseChars = "qwertyuiopasdfghjklzxcvbnm"
+  const uppercaseChars = "QWERTYUIOPASDFGHJKLZXCVBNM"
+  const nums = "1234567890"
+  const special = `$!#¤%&/()?=|§<>@.:,;-_*^{}[]+~`
+
   return(
     <div className="bg-zinc-200 h-screen">
       <Navbar></Navbar>
@@ -38,7 +43,7 @@ export default function Home() {
             console.log("Losercase: " + includeLowercase)
             console.log("Uppercase: " + includeUppercase)
             console.log("Numbers: " + includeNums)
-            console.log("Special: " + includeSpecial)
+            console.log("Special: " + special)
           }}>Generate</Button>
 
         </div>
