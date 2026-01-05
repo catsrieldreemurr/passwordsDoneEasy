@@ -11,7 +11,7 @@ export default function CheckboxHolder({text, stateToRead, stateToSet}:SetTypes)
     return (
         <div className="flex items-center gap-3">
             <p>{text}</p>
-            <Checkbox onCheckedChange={() => {
+            <Checkbox defaultChecked={true} onCheckedChange={() => {
                 stateToSet(!stateToRead);
             }}></Checkbox>
         </div>

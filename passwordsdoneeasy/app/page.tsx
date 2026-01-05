@@ -3,11 +3,15 @@ import { Checkbox } from "@/components/ui/checkbox";
 import CheckboxHolder from "@/components/ui/checkboxHolder";
 import Navbar from "@/components/ui/navbar";
 import Image from "next/image";
-import { useState } from "react";
+import { use, useState } from "react";
 
 export default function Home() {
   const [generatedString, setGeneratedString] = useState('Click "Generate" to create a new Password.')
-  const [includeLowercase, setIncludeLowercase] = useState(false)
+  const [includeLowercase, setIncludeLowercase] = useState(true)
+  const [includeUppercase, setIncludeUppercase] = useState(true)
+  const [includeNums, setIncludeNums] = useState(true)
+  const [includeSpecial, setIncludeSpecial] = useState(true)
+
   return(
     <div className="bg-zinc-200 h-screen">
       <Navbar></Navbar>
@@ -18,8 +22,11 @@ export default function Home() {
           <h1 className="font-bold text-2xl">Generate a Password</h1>
           <p>Your Online Security is no Joke.</p>
 
-          <div>
-            <CheckboxHolder text="lowercase" stateToRead={includeLowercase} stateToSet={setIncludeLowercase}></CheckboxHolder>
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mt-5">
+            <CheckboxHolder text="Lowercase" stateToRead={includeLowercase} stateToSet={setIncludeLowercase}></CheckboxHolder>
+            <CheckboxHolder text="Uppercase" stateToRead={includeUppercase} stateToSet={setIncludeUppercase}></CheckboxHolder>
+            <CheckboxHolder text="Numbers" stateToRead={includeNums} stateToSet={setIncludeNums}></CheckboxHolder>
+            <CheckboxHolder text="Special" stateToRead={includeSpecial} stateToSet={setIncludeSpecial}></CheckboxHolder>
           </div>
 
           <div className="border p-3 mt-5">
