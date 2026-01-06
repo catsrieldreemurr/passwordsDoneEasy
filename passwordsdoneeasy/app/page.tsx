@@ -128,17 +128,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-2 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-2 justify-center items-center text-center">
           <div className="bg-white w-4/5 sm:w-1/3 mt-5 rounded-xl p-5">
-            <h1>Password Stats</h1>
-            <p>Uppercase: {upperAmount}</p>
+            <p className="text-lg underline font-bold">Password Stats</p>
+            <p className="mt-3">Uppercase: {upperAmount}</p>
             <p>Lowercase: {lowerAmount}</p>
             <p>Numbers: {numsAmount}</p>
             <p>Special: {specialAmount}</p>
           </div>
 
           <div className="bg-white w-4/5 sm:w-1/3 mt-5 rounded-xl p-5">
-          <h1>Password Anaylsis</h1>
+            <p className="text-lg underline text-center">Password Analysis</p>
+              
           </div>
         </div>
       </div>
