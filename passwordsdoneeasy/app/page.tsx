@@ -20,6 +20,11 @@ export default function Home() {
   const [includeSpecial, setIncludeSpecial] = useState(true)
   const [passLength, setPassLength] = useState(16);
 
+  const [upperAmount, setUpperAmount] = useState(0);
+  const [lowerAmount, setLowerAmount] = useState(0);
+  const [numsAmount, setNumsAmount] = useState(0);
+  const [specialAmount, setSpecialAmount] = useState(0);
+
   const lowercaseChars = "qwertyuiopasdfghjklzxcvbnm"
   const uppercaseChars = "QWERTYUIOPASDFGHJKLZXCVBNM"
   const nums = "1234567890"
@@ -82,15 +87,32 @@ export default function Home() {
               if(includeSpecial){permittedChars += special}
 
               if(permittedChars.length !== 0){
+                let lower = 0
+                let higher = 0
+                let specials = 0
+                let num = 0
+
                 for(let i = 0; i < passLength; i++){
-                  pass += permittedChars[Math.floor(Math.random() * permittedChars.length)]
+                  const randNum = Math.floor(Math.random() * permittedChars.length)
+                  const char = permittedChars[randNum]
+                  pass += char
+
+                  if(lowercaseChars.indexOf(char) !== -1){lower += 1}
+                  if(uppercaseChars.indexOf(char) !== -1){higher += 1}
+                  if(nums.indexOf(char) !== -1){num += 1}
+                  if(special.indexOf(char) !== -1){specials += 1}
                 }
                 setGeneratedString(pass);
+
+                setLowerAmount(lower)
+                setUpperAmount(higher)
+                setNumsAmount(num)
+                setSpecialAmount(specials)
               } 
               else{
                 setGeneratedString("All Boxes are Unticked.")
               }
-             
+            
               
             }}>Generate</Button>
 
@@ -109,6 +131,10 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-2 justify-center items-center">
           <div className="bg-white w-4/5 sm:w-1/3 mt-5 rounded-xl p-5">
             <h1>Password Stats</h1>
+            <p>Uppercase: {upperAmount}</p>
+            <p>Lowercase: {lowerAmount}</p>
+            <p>Numbers: {numsAmount}</p>
+            <p>Special: {specialAmount}</p>
           </div>
 
           <div className="bg-white w-4/5 sm:w-1/3 mt-5 rounded-xl p-5">
