@@ -1,4 +1,5 @@
 "use client"
+import AnalyzePassword from "@/components/ui/analysis";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import CheckboxHolder from "@/components/ui/checkboxHolder";
@@ -129,7 +130,7 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-2 justify-center items-center text-center">
-          <div className="bg-white w-4/5 sm:w-1/3 mt-5 rounded-xl p-5">
+          <div className="bg-white w-4/5 sm:w-1/3 mt-5 rounded-xl p-5 sm:h-[15rem]">
             <p className="text-lg underline font-bold">Password Stats</p>
             <p className="mt-3">Uppercase: {upperAmount}</p>
             <p>Lowercase: {lowerAmount}</p>
@@ -137,8 +138,14 @@ export default function Home() {
             <p>Special: {specialAmount}</p>
           </div>
 
-          <div className="bg-white w-4/5 sm:w-1/3 mt-5 rounded-xl p-5">
-            <p className="text-lg underline text-center">Password Analysis</p>
+          <div className="bg-white w-4/5 sm:w-1/3 mt-5 rounded-xl p-5 h-[15rem]">
+            <p className="text-lg underline text-center font-bold">Password Analysis</p>
+              <AnalyzePassword passwordString={generatedString} 
+              lowercaseAmount={lowerAmount} 
+              uppercaseAmount={upperAmount} 
+              numberAmount={numsAmount} 
+              specialAmount={specialAmount}
+              ></AnalyzePassword>
               
           </div>
         </div>
