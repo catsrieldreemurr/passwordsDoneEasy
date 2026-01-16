@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footerbar(){
     return(
-        <footer className="pt-[5rem] sm:pt-[20rem]">
+        <footer className="pt-[5rem] sm:pt-[10rem]">
             <div className="bg-pink-950 flex flex-col sm:flex-row text-white">
 
                 <Box>
