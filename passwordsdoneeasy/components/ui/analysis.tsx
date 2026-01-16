@@ -1,4 +1,5 @@
 import { error } from "console"
+import Typography from "./typography"
 
 interface SetProps{
     passwordString: string
@@ -11,17 +12,20 @@ interface SetProps{
 
 export default function AnalyzePassword({passwordString, uppercaseAmount, lowercaseAmount, numberAmount, specialAmount}:SetProps){
     if(passwordString === 'Click "Generate" to create a new Password.'){
-        return <p>Not a Password</p>
+        return <Typography isSpacer>Not a Password</Typography>
+    }
+    else if(passwordString === "All Boxes are Unticked."){
+        return <Typography isSpacer>Not a Password. Please tick off atleast one box.</Typography>
     }
     else{
         let points = 0
         const errors = []
         let message = "";
 
-        if(passwordString.length >= 12){points += 1} else {message="Password is too short. (12+ Characters Recommended)"}
-        if(passwordString.length >= 16){points += 1; message="Password has a Good Length. (16+)"}
-        if(passwordString.length >= 27){points += 1; message="Password has a Great Length. (27+)"}
-        if(passwordString.length >= 36){points += 1; message="Password has a Perfect Length. (36+)"}
+        if(passwordString.length >= 12){points += 1} else {message=`Password is too short. (${passwordString.length}/12)`}
+        if(passwordString.length >= 16){points += 1; message=`Password has a Good Length. (${passwordString.length}/16)`}
+        if(passwordString.length >= 27){points += 1; message=`Password has a Great Length. (${passwordString.length}/27)`}
+        if(passwordString.length >= 36){points += 1; message=`Password has a Perfect Length. (${passwordString.length}/36)`}
 
         if(uppercaseAmount > 0){points += 1} else {errors.push("Password is missing an Uppercase character.")}
         if(lowercaseAmount > 0){points += 1} else {errors.push("Password is missing a Lowercase character.")}
@@ -30,13 +34,14 @@ export default function AnalyzePassword({passwordString, uppercaseAmount, lowerc
 
         return <div className="mt-5">
             {errors.map((err, index) => (
-            <p key={index}>{err}</p>
+            <Typography key={index}>{err}</Typography>
             ))}
             
-            <p>{message}</p>
-            {errors.length === 0 && <p>The Password is safe.</p>}
+            <Typography>{message}</Typography>
+            {(errors.length === 0 && passwordString.length >= 16) && <p>The Password is safe.</p>}
+            
 
-            <p className="mt-3">Total Points: {points}/8</p>
+            <Typography isSpacer>Total Points: {points}/8</Typography>
         </div>
     
     }

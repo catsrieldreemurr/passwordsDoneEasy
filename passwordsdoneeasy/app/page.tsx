@@ -3,9 +3,11 @@ import AnalyzePassword from "@/components/ui/analysis";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import CheckboxHolder from "@/components/ui/checkboxHolder";
+import Footerbar from "@/components/ui/footerbar";
 import { Input } from "@/components/ui/input";
 import Navbar from "@/components/ui/navbar";
 import { Slider } from "@/components/ui/slider";
+import Typography from "@/components/ui/typography";
 import Image from "next/image";
 import { use, useState } from "react";
 
@@ -32,15 +34,15 @@ export default function Home() {
   const special = `$!#¤%&/()?=|§<>@.:,;-_*^{}[]+~`
 
   return(
-    <div className="bg-zinc-200 h-screen">
+    <div className="bg-zinc-200">
       <Navbar></Navbar>
       <Toaster></Toaster>
 
       <div>
         <div className="flex justify-center mt-5">
           <div className="bg-white sm:w-2/3 w-4/5 p-5 rounded-xl text-center">
-            <h1 className="font-bold text-2xl">Generate a Password</h1>
-            <p>Your Online Security is no Joke.</p>
+            <Typography variant="h1" isBold>Generate a Password</Typography>
+            <Typography>Your Online Security is no Joke.</Typography>
 
             <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mt-5">
               <CheckboxHolder text="Lowercase" stateToRead={includeLowercase} stateToSet={setIncludeLowercase}></CheckboxHolder>
@@ -131,15 +133,15 @@ export default function Home() {
 
         <div className="flex flex-col sm:flex-row gap-2 justify-center items-center text-center">
           <div className="bg-white w-4/5 sm:w-1/3 mt-5 rounded-xl p-5 sm:h-[15rem]">
-            <p className="text-lg underline font-bold">Password Stats</p>
-            <p className="mt-3">Uppercase: {upperAmount}</p>
-            <p>Lowercase: {lowerAmount}</p>
-            <p>Numbers: {numsAmount}</p>
-            <p>Special: {specialAmount}</p>
+            <Typography variant="h3" isUnderscore isBold>Password Stats</Typography>
+            <Typography isSpacer>Uppercase: {upperAmount}</Typography>
+            <Typography>Lowercase: {lowerAmount}</Typography>
+            <Typography>Numbers: {numsAmount}</Typography>
+            <Typography>Special: {specialAmount}</Typography>
           </div>
 
           <div className="bg-white w-4/5 sm:w-1/3 mt-5 rounded-xl p-5 h-[15rem]">
-            <p className="text-lg underline text-center font-bold">Password Analysis</p>
+            <Typography variant="h3" isUnderscore isBold>Password Analysis</Typography>
               <AnalyzePassword passwordString={generatedString} 
               lowercaseAmount={lowerAmount} 
               uppercaseAmount={upperAmount} 
@@ -150,6 +152,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <Footerbar></Footerbar>
       
     </div>
   )
