@@ -10,26 +10,7 @@ export default function Navbar(){
                 <Image className="hidden sm:flex" src={"/passwordsDoneEasyWhite.png"} height={200} width={200} alt="Passwords Done Easy"></Image>
 
                 <div className="flex gap-10 items-center justify-between w-full sm:justify-end">
-                    <p className="font-bold flex sm:hidden">PasswordsDoneEasy</p>
-
-                    <div className="hidden sm:flex gap-10">
-                        <Link href={"/"} className="text-lg hover:underline">Generate</Link>
-                        <Link href={"/info"} className="text-lg hover:underline">Information</Link>
-                    </div>
-
-                    <Popover>
-                        <PopoverTrigger asChild>
-                            <Button variant={"link"} className="flex sm:hidden"> <Image src={"/menuImgWhite.png"} alt="Menu" height={50} width={50}></Image> </Button>
-                        </PopoverTrigger>
-
-                        <PopoverContent>
-                            <div className="flex flex-col gap-5 text-center">
-                                <Link href={"/"}>Generate</Link>
-                                <Link href={"/info"}>Information</Link>
-                            </div>
-                        </PopoverContent>
-                    </Popover>
-                    
+                    <p className="font-bold flex sm:hidden">Passwords Done Easy</p>
                 </div>
             </div>
         </nav>
