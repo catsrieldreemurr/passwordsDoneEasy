@@ -38,8 +38,8 @@ export default function Home() {
       <Navbar></Navbar>
       <Toaster></Toaster>
 
-      <div>
-        <div className="flex justify-center mt-5">
+      <div className="min-h-svh">
+        <div className="flex justify-center">
           <div className="bg-white sm:w-2/3 w-4/5 p-5 rounded-xl text-center">
             <Typography variant="h1" isBold>Generate a Password</Typography>
             <Typography>Your Online Security is no Joke.</Typography>
